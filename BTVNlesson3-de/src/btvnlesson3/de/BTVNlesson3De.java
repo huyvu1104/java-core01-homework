@@ -12,10 +12,10 @@ public class BTVNlesson3De {
         String[] arr = new String[n];
         System.out.println("nhap danh sach: ");
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = sc.nextLine().toLowerCase();
+            arr[i] = sc.nextLine();
         }
         System.out.println("nhap ten can tim: ");
-        String a = sc.nextLine().toLowerCase();
+        String a = sc.nextLine();
         int flag = 0;
         int count = 0;
         for (int i = 0; i < (arr.length); i++) {
@@ -26,7 +26,7 @@ public class BTVNlesson3De {
             }
         }
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i].contains(a)) {
+            if (arr[i].toLowerCase().contains(a.toLowerCase())) {
                 flag = 1;
                 System.out.println("tim thay: " + arr[i]);
             }
