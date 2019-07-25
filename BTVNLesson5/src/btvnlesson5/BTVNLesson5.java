@@ -3,7 +3,9 @@ package btvnlesson5;
 import java.util.Scanner;
 
 public class BTVNLesson5 {
+
     static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
         
         System.out.println("day: ");
@@ -20,9 +22,10 @@ public class BTVNLesson5 {
         int sec = sc.nextInt();
         System.out.println("s: ");
         int s = sc.nextInt();
-        System.out.println("currentTime: " +hour+":"+min+":"+sec);
+        System.out.println("currentTime: " +currentTime(hour, min, sec));
+        
 
-        System.out.println("nextTime: " + nextTime(hour, min, sec, s));
+        System.out.println("nextTime: " + nextTime(currentTime(hour, min, sec), s));
 
         if (isValidDay(day, month, year)) {
             System.out.println("TRUE");
@@ -88,8 +91,7 @@ public class BTVNLesson5 {
                     NumOfDays = 28;
                 }
                 break;
-            default:
-                System.out.println("nhap sai ngay");
+            
         }
 
         return NumOfDays;
@@ -111,23 +113,29 @@ public class BTVNLesson5 {
         return true;
     }
 
+    static String currentTime(int hour, int min, int sec) {
+        return String.valueOf(hour)+":"+String.valueOf(min)+":"+String.valueOf(sec);
+        
+    }
 
-    static String nextTime(int hour, int min, int sec, int s) {
-        
+    static String nextTime(String currentTime, int s) {
+        int hour= Integer.valueOf(currentTime.substring(0, currentTime.indexOf(":")));
+        int min= Integer.valueOf(currentTime.substring(currentTime.indexOf(":")+1, currentTime.lastIndexOf(":")));
+        int sec= Integer.valueOf(currentTime.substring(currentTime.lastIndexOf(":")+1, currentTime.length()));
         sec = sec + s;
-        
+
         if (sec > 59) {
             min = min + sec / 60;
             sec = sec % 60;
-            
+
             if (min > 59) {
                 hour = hour + min / 60;
                 min = min % 60;
-                if (hour >23) {
+                if (hour > 23) {
                     hour = hour % 24;
                 }
             }
         }
-        return String.valueOf(hour) +":"+ String.valueOf(min) +":"+ String.valueOf(sec);
+        return String.valueOf(hour) + ":" + String.valueOf(min) + ":" + String.valueOf(sec);
     }
 }
