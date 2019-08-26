@@ -9,11 +9,11 @@ package HW4;
  *
  * @author Vu Huy
  */
-public class VanPhong {
+public class VanPhong extends Employee {
 
-    String name;
     private String position;
     int flag = 0;
+
     public VanPhong(String name, String position) {
         this.name = name;
         this.position = position;
@@ -34,8 +34,9 @@ public class VanPhong {
     public void setPosition(String position) {
         this.position = position;
     }
+
     public int search(String name) {
-        
+
         if (name.equalsIgnoreCase(this.name)) {
             System.out.println("tim thay nhan vien " + this.name);
             return flag = 1;
@@ -44,12 +45,13 @@ public class VanPhong {
             return flag = 0;
         }
     }
-    void  showInfo(String name){
-        if (search(name)>0) {
-            System.out.println("Name: "+this.name);
-            System.out.println("Position: "+this.position);
+
+    void showInfo(String name) {
+        if (search(name) > 0) {
+            System.out.println("Name: " + this.name);
+            System.out.println("Position: " + this.position);
+        } else {
+            System.out.println("nhap sai ten!!");
         }
-        else{
-            System.out.println("nhap sai ten!!");}
-}
+    }
 }
