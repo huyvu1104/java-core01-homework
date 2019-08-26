@@ -139,4 +139,27 @@ public class ToaBao {
         NhaBao nb = new NhaBao(name, number);
         a1.add(nb);
     }
+
+    void updateNB(String name) {
+        if (searchNhabao(name) > 0) {
+            System.out.println("nhap ten: ");
+            a1.get(index).setName(sc.next());
+            System.out.println("nhap so bai viet: ");
+            a1.get(index).setPostNumber(sc.nextInt());
+
+        } else {
+            System.out.println("nhap sai ten!!");
+        }
+    }
+
+    void updateVP(String name) {
+        if (searchVanphong(name) > 0) {
+            System.out.println("nhap ten: ");
+            a2.get(index).setName(sc.next());
+            System.out.println("nhap chuc vu: ");
+            a2.get(index).setPosition(sc.next());
+        } else {
+            System.out.println("nhap sai ten!!");
+        }
+    }
 }
